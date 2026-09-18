@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => null, // 👈 Yeni kayıt olan herkesin rolü başta boş (null) başlar!
         ]);
 
         event(new Registered($user));
